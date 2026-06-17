@@ -1,0 +1,27 @@
+import type { Race } from "../types/f1";
+
+export const calendar: Race[] = [
+  { round: 1, country: "Australia", grandPrix: "Australian Grand Prix", circuit: "Albert Park Circuit", location: "Melbourne", startDate: "2026-03-06", endDate: "2026-03-08", status: "completed", podium: { first: "George Russell", second: "Kimi Antonelli", third: "Charles Leclerc" } },
+  { round: 2, country: "China", grandPrix: "Chinese Grand Prix", circuit: "Shanghai International Circuit", location: "Shanghai", startDate: "2026-03-13", endDate: "2026-03-15", sprint: true, status: "completed", podium: { first: "Kimi Antonelli", second: "George Russell", third: "Lewis Hamilton" } },
+  { round: 3, country: "Japan", grandPrix: "Japanese Grand Prix", circuit: "Suzuka Circuit", location: "Suzuka", startDate: "2026-03-27", endDate: "2026-03-29", status: "completed", podium: { first: "Kimi Antonelli", second: "Lando Norris", third: "Max Verstappen" } },
+  { round: 4, country: "Bahrain", grandPrix: "Bahrain Grand Prix", circuit: "Bahrain International Circuit", location: "Sakhir", startDate: "2026-04-10", endDate: "2026-04-12", status: "completed", podium: { first: "Oscar Piastri", second: "Kimi Antonelli", third: "George Russell" } },
+  { round: 5, country: "Saudi Arabia", grandPrix: "Saudi Arabian Grand Prix", circuit: "Jeddah Corniche Circuit", location: "Jeddah", startDate: "2026-04-17", endDate: "2026-04-19", status: "completed", podium: { first: "Max Verstappen", second: "Charles Leclerc", third: "Lewis Hamilton" } },
+  { round: 6, country: "United States", grandPrix: "Miami Grand Prix", circuit: "Miami International Autodrome", location: "Miami", startDate: "2026-05-01", endDate: "2026-05-03", sprint: true, status: "completed", podium: { first: "Kimi Antonelli", second: "Lando Norris", third: "Oscar Piastri" } },
+  { round: 7, country: "Monaco", grandPrix: "Monaco Grand Prix", circuit: "Circuit de Monaco", location: "Monte Carlo", startDate: "2026-05-22", endDate: "2026-05-24", status: "completed", podium: { first: "Kimi Antonelli", second: "Lewis Hamilton", third: "Fernando Alonso" } },
+  { round: 8, country: "Canada", grandPrix: "Canadian Grand Prix", circuit: "Circuit Gilles-Villeneuve", location: "Montreal", startDate: "2026-06-05", endDate: "2026-06-07", status: "completed", podium: { first: "Kimi Antonelli", second: "George Russell", third: "Max Verstappen" } },
+  { round: 9, country: "Spain", grandPrix: "Spanish Grand Prix", circuit: "Circuit de Barcelona-Catalunya", location: "Barcelona", startDate: "2026-06-12", endDate: "2026-06-14", status: "completed", podium: { first: "Lewis Hamilton", second: "Charles Leclerc", third: "Kimi Antonelli" } },
+  { round: 10, country: "Austria", grandPrix: "Austrian Grand Prix", circuit: "Red Bull Ring", location: "Spielberg", startDate: "2026-06-26", endDate: "2026-06-28", status: "upcoming" },
+  { round: 11, country: "United Kingdom", grandPrix: "British Grand Prix", circuit: "Silverstone Circuit", location: "Silverstone", startDate: "2026-07-03", endDate: "2026-07-05", status: "upcoming" },
+  { round: 12, country: "Belgium", grandPrix: "Belgian Grand Prix", circuit: "Spa-Francorchamps", location: "Spa", startDate: "2026-07-17", endDate: "2026-07-19", sprint: true, status: "upcoming" },
+  { round: 13, country: "Hungary", grandPrix: "Hungarian Grand Prix", circuit: "Hungaroring", location: "Budapest", startDate: "2026-07-24", endDate: "2026-07-26", status: "upcoming" },
+  { round: 14, country: "Netherlands", grandPrix: "Dutch Grand Prix", circuit: "Circuit Zandvoort", location: "Zandvoort", startDate: "2026-08-21", endDate: "2026-08-23", status: "upcoming" },
+  { round: 15, country: "Italy", grandPrix: "Italian Grand Prix", circuit: "Autodromo Nazionale Monza", location: "Monza", startDate: "2026-09-04", endDate: "2026-09-06", status: "upcoming" },
+  { round: 16, country: "Azerbaijan", grandPrix: "Azerbaijan Grand Prix", circuit: "Baku City Circuit", location: "Baku", startDate: "2026-09-25", endDate: "2026-09-27", status: "upcoming" },
+  { round: 17, country: "Singapore", grandPrix: "Singapore Grand Prix", circuit: "Marina Bay Street Circuit", location: "Singapore", startDate: "2026-10-09", endDate: "2026-10-11", status: "upcoming" },
+  { round: 18, country: "United States", grandPrix: "United States Grand Prix", circuit: "Circuit of The Americas", location: "Austin", startDate: "2026-10-23", endDate: "2026-10-25", sprint: true, status: "upcoming" },
+  { round: 19, country: "Mexico", grandPrix: "Mexico City Grand Prix", circuit: "Autódromo Hermanos Rodríguez", location: "Mexico City", startDate: "2026-10-30", endDate: "2026-11-01", status: "upcoming" },
+  { round: 20, country: "Brazil", grandPrix: "São Paulo Grand Prix", circuit: "Interlagos", location: "São Paulo", startDate: "2026-11-06", endDate: "2026-11-08", sprint: true, status: "upcoming" },
+  { round: 21, country: "United States", grandPrix: "Las Vegas Grand Prix", circuit: "Las Vegas Strip Circuit", location: "Las Vegas", startDate: "2026-11-19", endDate: "2026-11-21", status: "upcoming" },
+  { round: 22, country: "Qatar", grandPrix: "Qatar Grand Prix", circuit: "Lusail International Circuit", location: "Lusail", startDate: "2026-11-27", endDate: "2026-11-29", sprint: true, status: "upcoming" },
+  { round: 23, country: "Abu Dhabi", grandPrix: "Abu Dhabi Grand Prix", circuit: "Yas Marina Circuit", location: "Yas Island", startDate: "2026-12-04", endDate: "2026-12-06", status: "upcoming" }
+];
