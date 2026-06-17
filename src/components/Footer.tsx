@@ -4,7 +4,7 @@ export function Footer() {
       <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
         <p className="font-semibold text-white/70">F1 Rookie Guide</p>
         <p className="mt-2 max-w-3xl">
-          An unofficial fan-made educational project. Team names, driver names, Formula 1, and related marks belong to their respective owners. Replace sample data with verified sources before publishing widely.
+          An unofficial fan-made educational project. Team names, driver names, Formula 1, and related marks belong to their respective owners. 
         </p>
       </div>
     </footer>

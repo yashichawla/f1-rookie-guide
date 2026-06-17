@@ -24,7 +24,11 @@ export type LineageDriver = {
   seasons: LineageDriverSeason[];
 };
 
-export const lineageYears = [2026, 2025, 2024, 2023, 2022, 2021, 2020];
+export const lineageYears = [
+  2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018,
+  2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009,
+  2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,
+];
 
 export const lineageTeams: LineageTeam[] = [
   {
@@ -55,13 +59,13 @@ export const lineageTeams: LineageTeam[] = [
   {
     id: "alpine",
     name: "Alpine / Renault",
-    shortName: "Alpine",
+    shortName: "Alpine/Renault",
     color: "#2293D1",
   },
   {
     id: "racing-bulls",
-    name: "Racing Bulls / RB / AlphaTauri",
-    shortName: "Racing Bulls",
+    name: "Racing Bulls / AlphaTauri / Toro Rosso",
+    shortName: "RB/Toro Rosso",
     color: "#1534CB",
   },
   {
@@ -85,8 +89,8 @@ export const lineageTeams: LineageTeam[] = [
   },
   {
     id: "aston-martin",
-    name: "Aston Martin / Racing Point",
-    shortName: "Aston Martin",
+    name: "Aston Martin / Racing Point / Force India",
+    shortName: "Aston/Racing Point",
     color: "#006F62",
   },
   {
@@ -95,6 +99,18 @@ export const lineageTeams: LineageTeam[] = [
     shortName: "Cadillac",
     color: "#D4AF37",
     textColor: "#111111",
+  },
+  {
+    id: "minardi",
+    name: "Minardi",
+    shortName: "Minardi",
+    color: "#123C69",
+  },
+  {
+    id: "manor",
+    name: "Manor / Marussia",
+    shortName: "Manor",
+    color: "#EE3224",
   },
 ];
 
@@ -114,6 +130,7 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "mercedes", seat: "D2" },
       { year: 2021, teamId: "williams", seat: "D1" },
       { year: 2020, teamId: "williams", seat: "D1" },
+      { year: 2019, teamId: "williams", seat: "D1" },
     ],
   },
   {
@@ -143,6 +160,8 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "ferrari", seat: "D1" },
       { year: 2021, teamId: "ferrari", seat: "D1" },
       { year: 2020, teamId: "ferrari", seat: "D1" },
+      { year: 2019, teamId: "ferrari", seat: "D1" },
+      { year: 2018, teamId: "audi", seat: "D1" },
     ],
   },
   {
@@ -160,6 +179,19 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "mercedes", seat: "D1" },
       { year: 2021, teamId: "mercedes", seat: "D1" },
       { year: 2020, teamId: "mercedes", seat: "D1" },
+      { year: 2019, teamId: "mercedes", seat: "D1" },
+      { year: 2018, teamId: "mercedes", seat: "D1" },
+      { year: 2017, teamId: "mercedes", seat: "D1" },
+      { year: 2016, teamId: "mercedes", seat: "D1" },
+      { year: 2015, teamId: "mercedes", seat: "D1" },
+      { year: 2014, teamId: "mercedes", seat: "D1" },
+      { year: 2013, teamId: "mercedes", seat: "D1" },
+      { year: 2012, teamId: "mclaren", seat: "D1" },
+      { year: 2011, teamId: "mclaren", seat: "D1" },
+      { year: 2010, teamId: "mclaren", seat: "D1" },
+      { year: 2009, teamId: "mclaren", seat: "D1" },
+      { year: 2008, teamId: "mclaren", seat: "D1" },
+      { year: 2007, teamId: "mclaren", seat: "D2" },
     ],
   },
   {
@@ -177,6 +209,7 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "mclaren", seat: "D1" },
       { year: 2021, teamId: "mclaren", seat: "D1" },
       { year: 2020, teamId: "mclaren", seat: "D1" },
+      { year: 2019, teamId: "mclaren", seat: "D2" },
     ],
   },
   {
@@ -208,6 +241,12 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "red-bull", seat: "D1" },
       { year: 2021, teamId: "red-bull", seat: "D1" },
       { year: 2020, teamId: "red-bull", seat: "D1" },
+      { year: 2019, teamId: "red-bull", seat: "D1" },
+      { year: 2018, teamId: "red-bull", seat: "D1" },
+      { year: 2017, teamId: "red-bull", seat: "D1" },
+      { year: 2016, teamId: "red-bull", seat: "D1" },
+      { year: 2016, teamId: "racing-bulls", seat: "D1" },
+      { year: 2015, teamId: "racing-bulls", seat: "D1" },
     ],
   },
   {
@@ -237,6 +276,10 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "racing-bulls", seat: "D1" },
       { year: 2021, teamId: "racing-bulls", seat: "D1" },
       { year: 2020, teamId: "racing-bulls", seat: "D1" },
+      { year: 2019, teamId: "red-bull", seat: "D2" },
+      { year: 2019, teamId: "racing-bulls", seat: "D1" },
+      { year: 2018, teamId: "racing-bulls", seat: "D1" },
+      { year: 2017, teamId: "racing-bulls", seat: "D2" },
     ],
   },
   {
@@ -248,6 +291,7 @@ export const lineageDrivers: LineageDriver[] = [
     currentTeamId: "alpine",
     seasons: [
       { year: 2026, teamId: "alpine", seat: "D2" },
+      { year: 2025, teamId: "alpine", seat: "SUB" },
       { year: 2024, teamId: "williams", seat: "SUB" },
     ],
   },
@@ -291,6 +335,9 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "alpine", seat: "D1" },
       { year: 2021, teamId: "alpine", seat: "D1" },
       { year: 2020, teamId: "alpine", seat: "D1" },
+      { year: 2018, teamId: "aston-martin", seat: "D1" },
+      { year: 2017, teamId: "aston-martin", seat: "D2" },
+      { year: 2016, teamId: "manor", seat: "D2" },
     ],
   },
   {
@@ -322,6 +369,12 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "ferrari", seat: "D2" },
       { year: 2021, teamId: "ferrari", seat: "D2" },
       { year: 2020, teamId: "mclaren", seat: "D2" },
+      { year: 2019, teamId: "mclaren", seat: "D2" },
+      { year: 2018, teamId: "alpine", seat: "D2" },
+      { year: 2017, teamId: "alpine", seat: "D2" },
+      { year: 2017, teamId: "racing-bulls", seat: "D2" },
+      { year: 2016, teamId: "racing-bulls", seat: "D2" },
+      { year: 2015, teamId: "racing-bulls", seat: "D2" },
     ],
   },
   {
@@ -338,6 +391,8 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2023, teamId: "williams", seat: "D1" },
       { year: 2022, teamId: "williams", seat: "D1" },
       { year: 2020, teamId: "red-bull", seat: "D2" },
+      { year: 2019, teamId: "red-bull", seat: "D2" },
+      { year: 2019, teamId: "racing-bulls", seat: "D1" },
     ],
   },
   {
@@ -354,6 +409,15 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2023, teamId: "haas", seat: "D2" },
       { year: 2022, teamId: "aston-martin", seat: "SUB" },
       { year: 2020, teamId: "aston-martin", seat: "SUB" },
+      { year: 2019, teamId: "alpine", seat: "D1" },
+      { year: 2018, teamId: "alpine", seat: "D1" },
+      { year: 2017, teamId: "alpine", seat: "D1" },
+      { year: 2016, teamId: "aston-martin", seat: "D1" },
+      { year: 2015, teamId: "aston-martin", seat: "D1" },
+      { year: 2014, teamId: "aston-martin", seat: "D1" },
+      { year: 2013, teamId: "audi", seat: "D1" },
+      { year: 2012, teamId: "aston-martin", seat: "D1" },
+      { year: 2010, teamId: "williams", seat: "D2" },
     ],
   },
   {
@@ -382,6 +446,23 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2023, teamId: "aston-martin", seat: "D2" },
       { year: 2022, teamId: "alpine", seat: "D2" },
       { year: 2021, teamId: "alpine", seat: "D2" },
+      { year: 2018, teamId: "mclaren", seat: "D1" },
+      { year: 2017, teamId: "mclaren", seat: "D1" },
+      { year: 2016, teamId: "mclaren", seat: "D1" },
+      { year: 2015, teamId: "mclaren", seat: "D1" },
+      { year: 2014, teamId: "ferrari", seat: "D1" },
+      { year: 2013, teamId: "ferrari", seat: "D1" },
+      { year: 2012, teamId: "ferrari", seat: "D1" },
+      { year: 2011, teamId: "ferrari", seat: "D1" },
+      { year: 2010, teamId: "ferrari", seat: "D1" },
+      { year: 2009, teamId: "alpine", seat: "D1" },
+      { year: 2008, teamId: "alpine", seat: "D1" },
+      { year: 2007, teamId: "mclaren", seat: "D1" },
+      { year: 2006, teamId: "alpine", seat: "D1" },
+      { year: 2005, teamId: "alpine", seat: "D1" },
+      { year: 2004, teamId: "alpine", seat: "D1" },
+      { year: 2003, teamId: "alpine", seat: "D1" },
+      { year: 2001, teamId: "minardi", seat: "D1" },
     ],
   },
   {
@@ -399,6 +480,9 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "aston-martin", seat: "D1" },
       { year: 2021, teamId: "aston-martin", seat: "D1" },
       { year: 2020, teamId: "aston-martin", seat: "D1" },
+      { year: 2019, teamId: "aston-martin", seat: "D1" },
+      { year: 2018, teamId: "williams", seat: "D1" },
+      { year: 2017, teamId: "williams", seat: "D1" },
     ],
   },
   {
@@ -415,6 +499,15 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "red-bull", seat: "D2" },
       { year: 2021, teamId: "red-bull", seat: "D2" },
       { year: 2020, teamId: "aston-martin", seat: "D2" },
+      { year: 2019, teamId: "aston-martin", seat: "D2" },
+      { year: 2018, teamId: "aston-martin", seat: "D2" },
+      { year: 2017, teamId: "aston-martin", seat: "D2" },
+      { year: 2016, teamId: "aston-martin", seat: "D2" },
+      { year: 2015, teamId: "aston-martin", seat: "D2" },
+      { year: 2014, teamId: "aston-martin", seat: "D2" },
+      { year: 2013, teamId: "mclaren", seat: "D2" },
+      { year: 2012, teamId: "audi", seat: "D1" },
+      { year: 2011, teamId: "audi", seat: "D1" },
     ],
   },
   {
@@ -431,6 +524,13 @@ export const lineageDrivers: LineageDriver[] = [
       { year: 2022, teamId: "audi", seat: "D1" },
       { year: 2021, teamId: "mercedes", seat: "D2" },
       { year: 2020, teamId: "mercedes", seat: "D2" },
+      { year: 2019, teamId: "mercedes", seat: "D2" },
+      { year: 2018, teamId: "mercedes", seat: "D2" },
+      { year: 2017, teamId: "mercedes", seat: "D2" },
+      { year: 2016, teamId: "williams", seat: "D1" },
+      { year: 2015, teamId: "williams", seat: "D1" },
+      { year: 2014, teamId: "williams", seat: "D1" },
+      { year: 2013, teamId: "williams", seat: "D2" },
     ],
   },
 ];
