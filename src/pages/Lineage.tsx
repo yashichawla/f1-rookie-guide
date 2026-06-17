@@ -41,8 +41,8 @@ export function Lineage() {
         <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
           <p className="text-sm font-black text-white">Current-grid focus</p>
           <p className="mt-2 text-sm text-white/55">
-            This first version focuses on the 2026 drivers and where they were
-            in recent F1 seasons.
+            This version focuses on the 2026 drivers and where they were in
+            recent F1 seasons.
           </p>
         </div>
       </div>

@@ -20,7 +20,7 @@ const YEAR_WIDTH = 160;
 const ROW_HEIGHT = 92;
 const TOP_HEIGHT = 72;
 const SEAT_HEIGHT = 28;
-const SEAT_GAP = 8;
+const SEAT_WIDTH = 112;
 
 const seatOffsetY: Record<LineageSeat, number> = {
   D1: -18,
@@ -89,11 +89,15 @@ export default function LineageWeb() {
   const height = TOP_HEIGHT + lineageTeams.length * ROW_HEIGHT + 40;
 
   const driverPoints = useMemo(() => {
-    return lineageDrivers.map((driver) => ({
-      driver,
-      points: getDriverPoints(driver),
-      path: getPath(getDriverPoints(driver)),
-    }));
+    return lineageDrivers.map((driver) => {
+      const points = getDriverPoints(driver);
+
+      return {
+        driver,
+        points,
+        path: getPath(points),
+      };
+    });
   }, []);
 
   const activeDriver = activeDriverId
@@ -110,26 +114,48 @@ export default function LineageWeb() {
           </p>
         </div>
 
-        <div className="flex gap-2 text-xs text-white/50">
-          <span className="rounded-full border border-white/10 px-3 py-1">D1 = first listed seat</span>
-          <span className="rounded-full border border-white/10 px-3 py-1">D2 = second listed seat</span>
-          <span className="rounded-full border border-white/10 px-3 py-1">SUB = substitute</span>
+        <div className="flex flex-wrap gap-2 text-xs text-white/50">
+          <span className="rounded-full border border-white/10 px-3 py-1">
+            D1 = first listed seat
+          </span>
+          <span className="rounded-full border border-white/10 px-3 py-1">
+            D2 = second listed seat
+          </span>
+          <span className="rounded-full border border-white/10 px-3 py-1">
+            SUB = substitute
+          </span>
         </div>
       </div>
 
-      {activeDriver && (
-        <div className="mb-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-white/40">
-            Highlighting
-          </p>
-          <p className="mt-1 text-xl font-black">
-            #{activeDriver.number} {activeDriver.name}
-          </p>
-          <p className="text-sm text-white/55">
-            {activeDriver.nationality} · {activeDriver.code}
-          </p>
-        </div>
-      )}
+      {/* Fixed-height panel prevents layout shift while hovering */}
+      <div className="mb-4 min-h-[104px] rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+        {activeDriver ? (
+          <>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/40">
+              Highlighting
+            </p>
+            <p className="mt-1 text-xl font-black">
+              #{activeDriver.number} {activeDriver.name}
+            </p>
+            <p className="text-sm text-white/55">
+              {activeDriver.nationality} · {activeDriver.code}
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/35">
+              Hover guide
+            </p>
+            <p className="mt-1 text-xl font-black text-white/70">
+              Hover over a driver code or line
+            </p>
+            <p className="text-sm text-white/45">
+              The driver’s full team path will light up without shifting the
+              chart.
+            </p>
+          </>
+        )}
+      </div>
 
       <div className="overflow-x-auto rounded-[1.5rem] border border-white/10 bg-[#050505]">
         <svg
@@ -137,6 +163,10 @@ export default function LineageWeb() {
           height={height}
           viewBox={`0 0 ${width} ${height}`}
           className="min-w-[1200px]"
+          onMouseLeave={() => {
+            setActiveDriverId(null);
+            setActiveTeamId(null);
+          }}
         >
           <defs>
             <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -150,11 +180,12 @@ export default function LineageWeb() {
 
           <rect x="0" y="0" width={width} height={height} fill="#050505" />
 
+          {/* Year headers */}
           {lineageYears.map((year, index) => {
             const x = LEFT_LABEL_WIDTH + index * YEAR_WIDTH;
 
             return (
-              <g key={year}>
+              <g key={year} style={{ pointerEvents: "none" }}>
                 <line
                   x1={x}
                   y1={0}
@@ -176,23 +207,20 @@ export default function LineageWeb() {
             );
           })}
 
+          {/* Team rows */}
           {lineageTeams.map((team, teamIndex) => {
             const y = TOP_HEIGHT + teamIndex * ROW_HEIGHT;
             const isActiveTeam = activeTeamId === team.id;
 
             return (
-              <g
-                key={team.id}
-                onMouseEnter={() => setActiveTeamId(team.id)}
-                onMouseLeave={() => setActiveTeamId(null)}
-                style={{ cursor: "pointer" }}
-              >
+              <g key={team.id}>
                 <rect
                   x={0}
                   y={y}
                   width={width}
                   height={ROW_HEIGHT}
                   fill={isActiveTeam ? "rgba(255,255,255,0.055)" : "transparent"}
+                  onMouseEnter={() => setActiveTeamId(team.id)}
                 />
 
                 <line
@@ -201,6 +229,7 @@ export default function LineageWeb() {
                   x2={width}
                   y2={y}
                   stroke="rgba(255,255,255,0.08)"
+                  style={{ pointerEvents: "none" }}
                 />
 
                 <rect
@@ -210,6 +239,7 @@ export default function LineageWeb() {
                   height={ROW_HEIGHT - 40}
                   rx={4}
                   fill={team.color}
+                  style={{ pointerEvents: "none" }}
                 />
 
                 <text
@@ -218,6 +248,7 @@ export default function LineageWeb() {
                   fill="white"
                   fontSize="15"
                   fontWeight="900"
+                  style={{ pointerEvents: "none" }}
                 >
                   {team.shortName}
                 </text>
@@ -227,6 +258,7 @@ export default function LineageWeb() {
                   y={y + 63}
                   fill="rgba(255,255,255,0.45)"
                   fontSize="11"
+                  style={{ pointerEvents: "none" }}
                 >
                   {team.name}
                 </text>
@@ -244,6 +276,7 @@ export default function LineageWeb() {
                       rx={16}
                       fill="rgba(255,255,255,0.025)"
                       stroke="rgba(255,255,255,0.055)"
+                      style={{ pointerEvents: "none" }}
                     />
                   );
                 })}
@@ -251,7 +284,8 @@ export default function LineageWeb() {
             );
           })}
 
-          {driverPoints.map(({ driver, path, points }) => {
+          {/* Visible movement paths */}
+          {driverPoints.map(({ driver, path }) => {
             const isActive = activeDriverId === driver.id;
             const isDimmed =
               Boolean(activeDriverId && !isActive) ||
@@ -261,7 +295,7 @@ export default function LineageWeb() {
 
             return (
               <path
-                key={`${driver.id}-path`}
+                key={`${driver.id}-visible-path`}
                 d={path}
                 fill="none"
                 stroke={getTeamColor(driver.currentTeamId)}
@@ -269,10 +303,33 @@ export default function LineageWeb() {
                 strokeOpacity={isDimmed ? 0.08 : isActive ? 0.95 : 0.34}
                 filter={isActive ? "url(#softGlow)" : undefined}
                 strokeLinecap="round"
+                style={{ pointerEvents: "none" }}
               />
             );
           })}
 
+          {/* Large invisible hover paths */}
+          {driverPoints.map(({ driver, path }) => {
+            if (!path) return null;
+
+            return (
+              <path
+                key={`${driver.id}-hover-path`}
+                d={path}
+                fill="none"
+                stroke="transparent"
+                strokeWidth={26}
+                strokeLinecap="round"
+                onMouseEnter={() => {
+                  setActiveDriverId(driver.id);
+                  setActiveTeamId(driver.currentTeamId);
+                }}
+                style={{ pointerEvents: "stroke" }}
+              />
+            );
+          })}
+
+          {/* Seat blocks */}
           {driverPoints.map(({ driver, points }) => {
             const isActive = activeDriverId === driver.id;
             const isDimmed =
@@ -280,23 +337,25 @@ export default function LineageWeb() {
               Boolean(activeTeamId && driver.currentTeamId !== activeTeamId);
 
             return (
-              <g
-                key={driver.id}
-                onMouseEnter={() => setActiveDriverId(driver.id)}
-                onMouseLeave={() => setActiveDriverId(null)}
-                style={{ cursor: "pointer" }}
-              >
+              <g key={driver.id}>
                 {points.map((point) => {
                   const team = lineageTeams.find((item) => item.id === point.teamId);
                   const color = team?.color ?? "#FFFFFF";
                   const textColor = team?.textColor ?? "#FFFFFF";
 
                   return (
-                    <g key={`${driver.id}-${point.year}-${point.teamId}-${point.seat}`}>
+                    <g
+                      key={`${driver.id}-${point.year}-${point.teamId}-${point.seat}`}
+                      onMouseEnter={() => {
+                        setActiveDriverId(driver.id);
+                        setActiveTeamId(driver.currentTeamId);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
                       <rect
-                        x={point.x - 56}
+                        x={point.x - SEAT_WIDTH / 2}
                         y={point.y - SEAT_HEIGHT / 2}
-                        width={112}
+                        width={SEAT_WIDTH}
                         height={SEAT_HEIGHT}
                         rx={10}
                         fill={color}
@@ -312,6 +371,7 @@ export default function LineageWeb() {
                         fontSize="9"
                         fontWeight="900"
                         opacity={isDimmed ? 0.2 : 1}
+                        style={{ pointerEvents: "none" }}
                       >
                         {seatLabel[point.seat]}
                       </text>
@@ -324,6 +384,7 @@ export default function LineageWeb() {
                         fontSize="11"
                         fontWeight="900"
                         opacity={isDimmed ? 0.2 : 1}
+                        style={{ pointerEvents: "none" }}
                       >
                         {driver.code}
                       </text>
@@ -336,6 +397,7 @@ export default function LineageWeb() {
                         fontSize="9"
                         fontWeight="900"
                         opacity={isDimmed ? 0.2 : 1}
+                        style={{ pointerEvents: "none" }}
                       >
                         #{driver.number}
                       </text>
