@@ -10,6 +10,7 @@ import { Calendar } from "./pages/Calendar";
 import { Results } from "./pages/Results";
 import { Standings } from "./pages/Standings";
 import { Glossary } from "./pages/Glossary";
+import { Lineage } from "./pages/Lineage";
 
 function App() {
   const basename = import.meta.env.PROD ? "/f1-rookie-guide" : "/";
@@ -29,6 +30,7 @@ function App() {
             <Route path="/results" element={<Results />} />
             <Route path="/standings" element={<Standings />} />
             <Route path="/glossary" element={<Glossary />} />
+            <Route path="/lineage" element={<Lineage />} />
           </Routes>
         </main>
         <Footer />
